@@ -4,6 +4,7 @@ firtsName varchar(25) NOT NULL,
 lastName varchar(25) NOT NULL,
 PRIMARY KEY (authorId)
 );
+
 ALTER TABLE author CHANGE `firtsName` `firstName` varchar(25);
 CREATE TABLE book (
  bookId INT(10) NOT NULL AUTO_INCREMENT,
