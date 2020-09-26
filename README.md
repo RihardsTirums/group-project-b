@@ -1,2 +1,2 @@
 # group-project-b
-Group B
+Group B project

@@ -1,6 +1,7 @@
 package configuration;
 
 import entity.Book;
+import entity.Review;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -14,22 +15,14 @@ import java.util.Properties;
 import static java.util.Arrays.asList;
 
 public class DbSessionHolder {
-
-    private static final List<Class> ENTITIES = asList(Author.class, Book.class);
-
+    private static final List<Class> ENTITIES = asList(Author.class, Book.class, Review.class);
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "";
-
-    //H2 - in memory database
-    private static final String DB_URL = "jdbc:h2:~/test";
-    private static final String DB_DRIVER = "org.h2.Driver";
-    private static final String DB_DIALECT = "org.hibernate.dialect.H2Dialect";
-
-    //MySql
-    // private static final String DB_URL = "jdbc:mysql://localhost:3306/library?useSSL=false&serverTimezone=UTC";
-    // private static final String DB_DRIVER = "org.hibernate.dialect.MySQL5Dialect";
-    // private static final String DB_DIALECT = "org.hibernate.dialect.MySQL5Dialect";
-
+    private static final String DB_NAME = "library";
+    private static final String HBM2DDL_AUTO = "validate";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false&serverTimezone=UTC";
+    private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
+    private static final String DB_DIALECT = "org.hibernate.dialect.MySQLDialect";
     private static SessionFactory sessionFactory;
 
     private DbSessionHolder() {
@@ -74,7 +67,7 @@ public class DbSessionHolder {
         properties.put(Environment.DIALECT, DB_DIALECT);
         properties.put(Environment.SHOW_SQL, "true");
         properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-        properties.put(Environment.HBM2DDL_AUTO, "validate");
+        properties.put(Environment.HBM2DDL_AUTO, HBM2DDL_AUTO);
         return properties;
     }
 
