@@ -8,75 +8,61 @@ import java.util.Set;
 @Entity
 @Table(name = "book")
 public class Book {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name= "bookId")
+    private int bookId;
 
-    @Column(name = "bookId")
-    private Integer id;
+    @Column(name= "bookTitle")
+    private String bookTitle;
 
-    @Column(name = "bookTitle", length = 25)
-    private String firstName;
+    @Column(name= "bookDescription", columnDefinition="TEXT")
+    private String bookDescription;
 
-    @Column(name = "bookDescription", length = 250)
-    private String lastName;
+    @Column(name= "authorId")
+    private int authorId;
 
-    @Column(name = "authorId")
-    private Integer id2;
+    @Column(name="bookRelaseDate")
+    private LocalDate bookRelaseDate;
 
-    @Column(name = "bookReleaseDate")
-    private LocalDate bookReleaseDate;
 
-    public Integer getId() {
-        return id;
+    public int getBookId() {
+        return bookId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getBookTitle() {
+        return bookTitle;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getBookDescription() {
+        return bookDescription;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setBookDescription(String bookDescription) {
+        this.bookDescription = bookDescription;
     }
 
-    public Integer getId2() {
-        return id2;
+    public int getAuthorId() {
+        return authorId;
     }
 
-    public void setId2(Integer id2) {
-        this.id2 = id2;
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
     }
 
-    public LocalDate getBookReleaseDate() {
-        return bookReleaseDate;
+    public LocalDate getBookRelaseDate() {
+        return bookRelaseDate;
     }
 
-    public void setBookReleaseDate(LocalDate bookReleaseDate) {
-        this.bookReleaseDate = bookReleaseDate;
+    public void setBookRelaseDate(LocalDate bookRelaseDate) {
+        this.bookRelaseDate = bookRelaseDate;
     }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", id2=" + id2 +
-                ", bookReleaseDate=" + bookReleaseDate +
-                '}';
-    }
-
-
 }
