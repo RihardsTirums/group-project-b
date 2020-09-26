@@ -17,7 +17,7 @@ import static java.util.Arrays.asList;
 public class DbSessionHolder {
     private static final List<Class> ENTITIES = asList(Author.class, Book.class, Review.class);
     private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "";
+    private static final String DB_PASSWORD = "tp*834keM679%";
     private static final String DB_NAME = "library";
     private static final String HBM2DDL_AUTO = "validate";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false&serverTimezone=UTC";
