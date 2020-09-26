@@ -10,8 +10,9 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name= "bookId")
-    private int bookId;
+    private Integer bookId;
 
     @Column(name= "bookTitle")
     private String bookTitle;
@@ -19,11 +20,20 @@ public class Book {
     @Column(name= "bookDescription", columnDefinition="TEXT")
     private String bookDescription;
 
-    @Column(name= "authorId")
-    private int authorId;
+    @ManyToOne
+    @JoinColumn(name= "authorId")
+    private  Author author;
 
     @Column(name="bookReleaseDate")
     private LocalDate bookReleaseDate;
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 
 
     public int getBookId() {
@@ -50,14 +60,6 @@ public class Book {
         this.bookDescription = bookDescription;
     }
 
-    public int getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(int authorId) {
-        this.authorId = authorId;
-    }
-
 
     public LocalDate getBookReleaseDate() {
         return bookReleaseDate;
@@ -65,5 +67,16 @@ public class Book {
 
     public void setBookReleaseDate(LocalDate bookReleaseDate) {
         this.bookReleaseDate = bookReleaseDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", bookTitle='" + bookTitle + '\'' +
+                ", bookDescription='" + bookDescription + '\'' +
+                ", author=" + author +
+                ", bookReleaseDate=" + bookReleaseDate +
+                '}';
     }
 }

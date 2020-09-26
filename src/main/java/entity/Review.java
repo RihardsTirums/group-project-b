@@ -9,38 +9,38 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reviewsId")
-    private int reviewsId;
+    private Integer reviewsId;
 
-    @Column(name="bookId")
-    private int bookId;
+    @Column(name = "bookId")
+    private Integer bookId;
 
-    @Column(name="score")
-    private int score;
+    @Column(name = "score")
+    private Integer score;
 
-    @Column(name= "review", columnDefinition = "TEXT")
+    @Column(name = "review", columnDefinition = "TEXT")
     private String review;
 
-    public int getReviewsId() {
+    public Integer getReviewsId() {
         return reviewsId;
     }
 
-    public void setReviewsId(int reviewsId) {
+    public void setReviewsId(Integer reviewsId) {
         this.reviewsId = reviewsId;
     }
 
-    public int getBookId() {
+    public Integer getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(Integer bookId) {
         this.bookId = bookId;
     }
 
-    public int getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 
@@ -50,6 +50,16 @@ public class Review {
 
     public void setReview(String review) {
         this.review = review;
+    }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "reviewsId=" + reviewsId +
+                ", bookId=" + bookId +
+                ", score=" + score +
+                ", review='" + review + '\'' +
+                '}';
     }
 }
 
