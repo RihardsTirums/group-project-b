@@ -4,7 +4,6 @@ firtsName varchar(25) NOT NULL,
 lastName varchar(25) NOT NULL,
 PRIMARY KEY (authorId)
 );
-
 ALTER TABLE author CHANGE `firtsName` `firstName` varchar(25);
 CREATE TABLE book (
  bookId INT(10) NOT NULL AUTO_INCREMENT,
@@ -15,7 +14,9 @@ CREATE TABLE book (
  PRIMARY KEY (bookID),
  FOREIGN KEY (authorId) REFERENCES author(authorId)
  );
-
+ALTER TABLE book CHANGE `bookRelaseDate` `bookReleaseDate` varchar(25);
+ALTER TABLE book ALTER COLUMN bookReleaseDate varchar(25);
+ALTER TABLE book MODIFY bookReleaseDate date;
 DROP TABLE author;
 
 CREATE TABLE reviews(
@@ -26,4 +27,5 @@ review text NOT NULL,
 PRIMARY KEY(reviewsId),
 FOREIGN KEY (bookId) REFERENCES book(bookId)
 );
-SELECT * FROM author
+SELECT * FROM book
+describe reviews

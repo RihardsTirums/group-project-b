@@ -22,8 +22,8 @@ public class Book {
     @Column(name= "authorId")
     private int authorId;
 
-    @Column(name="bookRelaseDate")
-    private LocalDate bookRelaseDate;
+    @Column(name="bookReleaseDate")
+    private LocalDate bookReleaseDate;
 
 
     public int getBookId() {
@@ -58,11 +58,12 @@ public class Book {
         this.authorId = authorId;
     }
 
-    public LocalDate getBookRelaseDate() {
-        return bookRelaseDate;
+
+    public LocalDate getBookReleaseDate() {
+        return bookReleaseDate;
     }
 
-    public void setBookRelaseDate(LocalDate bookRelaseDate) {
-        this.bookRelaseDate = bookRelaseDate;
+    public void setBookReleaseDate(LocalDate bookReleaseDate) {
+        this.bookReleaseDate = bookReleaseDate;
     }
 }
