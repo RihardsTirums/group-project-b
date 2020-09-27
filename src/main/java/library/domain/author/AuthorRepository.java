@@ -1,9 +1,8 @@
-package repository;
-
-import entity.Author;
+package library.domain.author;
 
 import java.util.List;
 
+import library.repository.CrudRepository;
 
 public class AuthorRepository extends CrudRepository<Author> {
 
